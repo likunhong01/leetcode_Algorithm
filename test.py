@@ -16,3 +16,10 @@ s1 = s1[0:2][::-1] + s1[2:]
 print(s1)
 
 print('.' == '.')
+
+import queue
+q1 = queue.Queue()
+q1.put(1)
+q1.put(None)
+while not q1.empty():
+    print(q1.get())
