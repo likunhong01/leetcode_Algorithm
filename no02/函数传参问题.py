@@ -26,3 +26,25 @@ print(id(bb))
 fff(bb)
 
 # 结论：函数传的都是对象，但对象可能是可变的，也可能是不可变的
+print('_______________________')
+
+def f(l=[1]):
+    l.append(1)
+    print(l)
+
+f()
+f()
+
+print('-----------')
+def clear(l1):
+    print(l1)
+    print(id(l1))
+    l1 = []
+    print(l1)
+    print(id(l1))
+
+l1 = [1,2,3]
+print(id(l1))
+clear(l1)
+print(l1)
+# l1还是1,2,3
