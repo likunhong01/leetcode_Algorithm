@@ -29,7 +29,6 @@ def preorderTraversal(root: TreeNode):
 
     return result
 
-
 print(preorderTraversal())
 
 
