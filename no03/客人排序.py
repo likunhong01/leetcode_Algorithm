@@ -10,8 +10,8 @@ import sys
 
 class keren:
     def __init__(self, renshu, qian):
-        self.renshu = renshu
-        self.qian = qian
+        self.r = renshu
+        self.q = qian
 
     # def __cmp__(self, other):
     #     if self.qian > other.qian:
@@ -20,6 +20,8 @@ class keren:
     #         return -1
     #     else:
     #         return 0
+    def get_r_and_q(self):
+        return self.r, self.q
 
     def __eq__(self, other):
         return self.qian == other.qian
@@ -36,17 +38,21 @@ class keren:
 
 if __name__ == "__main__":
     # 读取每一行
-    # line = sys.stdin.readline().strip()
-    # # 把每一行的数字分隔后转化成int列表
-    # values = list(map(int, line.split()))
-    #
-    # n = values[0]
-    # m = values[1]
-    # maxrongna = values[2:2 + n]
-    # bc = values[2 + n:]
-    # b = [values[i * 2 + 2 + n] for i in range(int(len(bc) / 2))]
-    # c = [values[i * 2 + 3 + n] for i in range(int(len(bc) / 2))]
-    # bcbc = [keren(b[i], c[i]) for i in range(len(b))]
+    line = sys.stdin.readline().strip()
+    # 把每一行的数字分隔后转化成int列表
+    values = list(map(int, line.split()))
+
+    n = values[0]
+    m = values[1]
+    maxrongna = values[2:2 + n]
+    bc = values[2 + n:]
+
+    b = [values[i * 2 + 2 + n] for i in range(int(len(bc) / 2))]
+    c = [values[i * 2 + 3 + n] for i in range(int(len(bc) / 2))]
+
+    bcbc = [keren(b[i], c[i]) for i in range(len(b))]
+
+
 
     n = 2
     m = 5
@@ -57,6 +63,8 @@ if __name__ == "__main__":
     keren4 = keren(3, 60)
     keren5 = keren(7, 110)
     bcbc = [keren1,keren2,keren3,keren4,keren5]
+
+    r, q = keren1.get_r_and_q()
 
     # 按消费排序，优先安排消费高的
     bcbc = sorted(bcbc,reverse=True)
